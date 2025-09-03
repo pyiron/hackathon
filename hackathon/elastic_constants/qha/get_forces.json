@@ -1,0 +1,304 @@
+{
+    "label": "get_forces",
+    "nodes": {
+        "GRACE": {
+            "id": "GRACE",
+            "import_path": "pyiron_nodes.atomistic.engine.ase.GRACE",
+            "label": "GRACE",
+            "parent_id": null,
+            "level": 0,
+            "graph": null,
+            "node_type": "node",
+            "widget_type": "customNode",
+            "expanded": false,
+            "node": {
+                "label": "GRACE",
+                "function": "pyiron_nodes.atomistic.engine.ase.GRACE",
+                "inputs": {}
+            }
+        },
+        "CubicBulkCell": {
+            "id": "CubicBulkCell",
+            "import_path": "pyiron_nodes.atomistic.structure.build.CubicBulkCell",
+            "label": "CubicBulkCell",
+            "parent_id": null,
+            "level": 0,
+            "graph": null,
+            "node_type": "graph",
+            "widget_type": null,
+            "expanded": false,
+            "node": {
+                "label": "CubicBulkCell",
+                "function": "pyiron_nodes.atomistic.structure.build.CubicBulkCell",
+                "inputs": {
+                    "element": "Al"
+                }
+            }
+        },
+        "phonopy": {
+            "id": "phonopy",
+            "import_path": "pyiron_nodes.atomistic.property.phonons.phonopy",
+            "label": "phonopy",
+            "parent_id": null,
+            "level": 0,
+            "graph": null,
+            "node_type": "graph",
+            "widget_type": null,
+            "expanded": false,
+            "node": {
+                "label": "phonopy",
+                "function": "pyiron_nodes.atomistic.property.phonons.phonopy",
+                "inputs": {}
+            }
+        },
+        "PhonopyParameters": {
+            "id": "PhonopyParameters",
+            "import_path": "pyiron_nodes.atomistic.property.phonons.PhonopyParameters",
+            "label": "PhonopyParameters",
+            "parent_id": null,
+            "level": 0,
+            "graph": null,
+            "node_type": "node",
+            "widget_type": "customNode",
+            "expanded": false,
+            "node": {
+                "label": "PhonopyParameters",
+                "function": "pyiron_nodes.atomistic.property.phonons.PhonopyParameters",
+                "inputs": {
+                    "number_of_snapshots": 0,
+                    "random_seed": ""
+                }
+            }
+        },
+        "GetDynamicalMatrix_1": {
+            "id": "GetDynamicalMatrix_1",
+            "import_path": "pyiron_nodes.atomistic.property.phonons.GetDynamicalMatrix",
+            "label": "GetDynamicalMatrix_1",
+            "parent_id": null,
+            "level": 0,
+            "graph": null,
+            "node_type": "node",
+            "widget_type": "customNode",
+            "expanded": false,
+            "node": {
+                "label": "GetDynamicalMatrix_1",
+                "function": "pyiron_nodes.atomistic.property.phonons.GetDynamicalMatrix",
+                "inputs": {
+                    "q": ""
+                }
+            }
+        },
+        "GetAttribute": {
+            "id": "GetAttribute",
+            "import_path": "pyiron_nodes.controls.GetAttribute",
+            "label": "GetAttribute",
+            "parent_id": null,
+            "level": 0,
+            "graph": null,
+            "node_type": "node",
+            "widget_type": "customNode",
+            "expanded": false,
+            "node": {
+                "label": "GetAttribute",
+                "function": "pyiron_nodes.controls.GetAttribute",
+                "inputs": {
+                    "attr": "temperatures"
+                }
+            }
+        },
+        "GetColumnFromDataFrame": {
+            "id": "GetColumnFromDataFrame",
+            "import_path": "pyiron_nodes.dataframe.GetColumnFromDataFrame",
+            "label": "GetColumnFromDataFrame",
+            "parent_id": null,
+            "level": 0,
+            "graph": null,
+            "node_type": "node",
+            "widget_type": "customNode",
+            "expanded": false,
+            "node": {
+                "label": "GetColumnFromDataFrame",
+                "function": "pyiron_nodes.dataframe.GetColumnFromDataFrame",
+                "inputs": {
+                    "column_name": "frequency_points",
+                    "as_array": true
+                }
+            }
+        },
+        "GetColumnFromDataFrame_1": {
+            "id": "GetColumnFromDataFrame_1",
+            "import_path": "pyiron_nodes.dataframe.GetColumnFromDataFrame",
+            "label": "GetColumnFromDataFrame_1",
+            "parent_id": null,
+            "level": 0,
+            "graph": null,
+            "node_type": "node",
+            "widget_type": "customNode",
+            "expanded": false,
+            "node": {
+                "label": "GetColumnFromDataFrame_1",
+                "function": "pyiron_nodes.dataframe.GetColumnFromDataFrame",
+                "inputs": {
+                    "column_name": "total_dos",
+                    "as_array": true
+                }
+            }
+        },
+        "Plot": {
+            "id": "Plot",
+            "import_path": "pyiron_nodes.plotting.Plot",
+            "label": "Plot",
+            "parent_id": null,
+            "level": 0,
+            "graph": null,
+            "node_type": "node",
+            "widget_type": "customNode",
+            "expanded": false,
+            "node": {
+                "label": "Plot",
+                "function": "pyiron_nodes.plotting.Plot",
+                "inputs": {}
+            }
+        },
+        "GetTotalDos_1": {
+            "id": "GetTotalDos_1",
+            "import_path": "pyiron_nodes.atomistic.property.phonons.GetTotalDos",
+            "label": "GetTotalDos_1",
+            "parent_id": null,
+            "level": 0,
+            "graph": null,
+            "node_type": "node",
+            "widget_type": "customNode",
+            "expanded": false,
+            "node": {
+                "label": "GetTotalDos_1",
+                "function": "pyiron_nodes.atomistic.property.phonons.GetTotalDos",
+                "inputs": {}
+            }
+        },
+        "PlotDataFrameXY_1": {
+            "id": "PlotDataFrameXY_1",
+            "import_path": "pyiron_nodes.plotting.PlotDataFrameXY",
+            "label": "PlotDataFrameXY_1",
+            "parent_id": null,
+            "level": 0,
+            "graph": null,
+            "node_type": "node",
+            "widget_type": "customNode",
+            "expanded": false,
+            "node": {
+                "label": "PlotDataFrameXY_1",
+                "function": "pyiron_nodes.plotting.PlotDataFrameXY",
+                "inputs": {}
+            }
+        },
+        "GetAnalyticalFreeEnergy": {
+            "id": "GetAnalyticalFreeEnergy",
+            "import_path": "pyiron_nodes.atomistic.property.phonons.GetAnalyticalFreeEnergy",
+            "label": "GetAnalyticalFreeEnergy",
+            "parent_id": null,
+            "level": 0,
+            "graph": null,
+            "node_type": "node",
+            "widget_type": "customNode",
+            "expanded": false,
+            "node": {
+                "label": "GetAnalyticalFreeEnergy",
+                "function": "pyiron_nodes.atomistic.property.phonons.GetAnalyticalFreeEnergy",
+                "inputs": {
+                    "n_atoms": 4
+                }
+            }
+        },
+        "_obj_type": "pyiron_workflow.api.serial.GraphNode"
+    },
+    "edges": {
+        "values": [
+            {
+                "source": "CubicBulkCell",
+                "target": "phonopy",
+                "sourceHandle": "structure",
+                "targetHandle": "structure"
+            },
+            {
+                "source": "PhonopyParameters",
+                "target": "phonopy",
+                "sourceHandle": "dataclass",
+                "targetHandle": "phonopy_parameters"
+            },
+            {
+                "source": "GRACE",
+                "target": "phonopy",
+                "sourceHandle": "out",
+                "targetHandle": "engine"
+            },
+            {
+                "source": "phonopy",
+                "target": "GetDynamicalMatrix_1",
+                "sourceHandle": "phonopy",
+                "targetHandle": "phonopy"
+            },
+            {
+                "source": "phonopy",
+                "target": "GetAttribute",
+                "sourceHandle": "thermal_properties",
+                "targetHandle": "obj"
+            },
+            {
+                "source": "GetDynamicalMatrix_1",
+                "target": "GetTotalDos_1",
+                "sourceHandle": "phonopy",
+                "targetHandle": "phonopy"
+            },
+            {
+                "source": "GetTotalDos_1",
+                "target": "GetColumnFromDataFrame_1",
+                "sourceHandle": "total_dos",
+                "targetHandle": "df"
+            },
+            {
+                "source": "GetTotalDos_1",
+                "target": "GetColumnFromDataFrame",
+                "sourceHandle": "total_dos",
+                "targetHandle": "df"
+            },
+            {
+                "source": "GetTotalDos_1",
+                "target": "PlotDataFrameXY_1",
+                "sourceHandle": "total_dos",
+                "targetHandle": "df"
+            },
+            {
+                "source": "GetColumnFromDataFrame_1",
+                "target": "GetAnalyticalFreeEnergy",
+                "sourceHandle": "column",
+                "targetHandle": "dos"
+            },
+            {
+                "source": "GetColumnFromDataFrame",
+                "target": "GetAnalyticalFreeEnergy",
+                "sourceHandle": "column",
+                "targetHandle": "nu"
+            },
+            {
+                "source": "GetAttribute",
+                "target": "GetAnalyticalFreeEnergy",
+                "sourceHandle": "value",
+                "targetHandle": "temperatures"
+            },
+            {
+                "source": "GetAnalyticalFreeEnergy",
+                "target": "Plot",
+                "sourceHandle": "u",
+                "targetHandle": "x"
+            },
+            {
+                "source": "GetAnalyticalFreeEnergy",
+                "target": "Plot",
+                "sourceHandle": "fe",
+                "targetHandle": "y"
+            }
+        ],
+        "obj_type": "pyiron_workflow.api.serial.GraphEdge"
+    }
+}

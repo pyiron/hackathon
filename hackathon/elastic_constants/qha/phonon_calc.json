@@ -1,0 +1,424 @@
+{
+    "label": "phonon_calc",
+    "nodes": {
+        "phonopy": {
+            "id": "phonopy",
+            "import_path": "pyiron_nodes.atomistic.property.phonons.phonopy",
+            "label": "phonopy",
+            "parent_id": null,
+            "level": 0,
+            "graph": null,
+            "node_type": "graph",
+            "widget_type": null,
+            "expanded": false,
+            "node": {
+                "label": "phonopy",
+                "function": "pyiron_nodes.atomistic.property.phonons.phonopy",
+                "inputs": {}
+            }
+        },
+        "PhonopyParameters": {
+            "id": "PhonopyParameters",
+            "import_path": "pyiron_nodes.atomistic.property.phonons.PhonopyParameters",
+            "label": "PhonopyParameters",
+            "parent_id": null,
+            "level": 0,
+            "graph": null,
+            "node_type": "node",
+            "widget_type": "customNode",
+            "expanded": false,
+            "node": {
+                "label": "PhonopyParameters",
+                "function": "pyiron_nodes.atomistic.property.phonons.PhonopyParameters",
+                "inputs": {}
+            }
+        },
+        "Bulk": {
+            "id": "Bulk",
+            "import_path": "pyiron_nodes.atomistic.structure.build.Bulk",
+            "label": "Bulk",
+            "parent_id": null,
+            "level": 0,
+            "graph": null,
+            "node_type": "node",
+            "widget_type": "customNode",
+            "expanded": false,
+            "node": {
+                "label": "Bulk",
+                "function": "pyiron_nodes.atomistic.structure.build.Bulk",
+                "inputs": {
+                    "name": "Cu",
+                    "cubic": true
+                }
+            }
+        },
+        "Repeat": {
+            "id": "Repeat",
+            "import_path": "pyiron_nodes.atomistic.structure.transform.Repeat",
+            "label": "Repeat",
+            "parent_id": null,
+            "level": 0,
+            "graph": null,
+            "node_type": "node",
+            "widget_type": "customNode",
+            "expanded": false,
+            "node": {
+                "label": "Repeat",
+                "function": "pyiron_nodes.atomistic.structure.transform.Repeat",
+                "inputs": {
+                    "repeat_scalar": 2
+                }
+            }
+        },
+        "ThermalProperties": {
+            "id": "ThermalProperties",
+            "import_path": "pyiron_workflow.api.serial.func_dataclass",
+            "label": "ThermalProperties",
+            "parent_id": null,
+            "level": 0,
+            "graph": null,
+            "node_type": "node",
+            "widget_type": "customNode",
+            "expanded": false,
+            "node": {
+                "label": "ThermalProperties",
+                "function": "pyiron_nodes.atomistic.property.phonons.ThermalProperties",
+                "inputs": {}
+            }
+        },
+        "Plot": {
+            "id": "Plot",
+            "import_path": "pyiron_nodes.plotting.Plot",
+            "label": "Plot",
+            "parent_id": null,
+            "level": 0,
+            "graph": null,
+            "node_type": "node",
+            "widget_type": "customNode",
+            "expanded": false,
+            "node": {
+                "label": "Plot",
+                "function": "pyiron_nodes.plotting.Plot",
+                "inputs": {}
+            }
+        },
+        "Plot_1": {
+            "id": "Plot_1",
+            "import_path": "pyiron_nodes.plotting.Plot",
+            "label": "Plot_1",
+            "parent_id": null,
+            "level": 0,
+            "graph": null,
+            "node_type": "node",
+            "widget_type": "customNode",
+            "expanded": false,
+            "node": {
+                "label": "Plot_1",
+                "function": "pyiron_nodes.plotting.Plot",
+                "inputs": {}
+            }
+        },
+        "Lammps": {
+            "id": "Lammps",
+            "import_path": "pyiron_nodes.atomistic.engine.lammps.Lammps",
+            "label": "Lammps",
+            "parent_id": null,
+            "level": 0,
+            "graph": null,
+            "node_type": "graph",
+            "widget_type": null,
+            "expanded": false,
+            "node": {
+                "label": "Lammps",
+                "function": "pyiron_nodes.atomistic.engine.lammps.Lammps",
+                "inputs": {}
+            }
+        },
+        "ListPotentials_1": {
+            "id": "ListPotentials_1",
+            "import_path": "pyiron_nodes.atomistic.engine.lammps.ListPotentials",
+            "label": "ListPotentials_1",
+            "parent_id": null,
+            "level": 0,
+            "graph": null,
+            "node_type": "node",
+            "widget_type": "customNode",
+            "expanded": false,
+            "node": {
+                "label": "ListPotentials_1",
+                "function": "pyiron_nodes.atomistic.engine.lammps.ListPotentials",
+                "inputs": {}
+            }
+        },
+        "CalcStatic": {
+            "id": "CalcStatic",
+            "import_path": "pyiron_nodes.atomistic.engine.lammps.CalcStatic",
+            "label": "CalcStatic",
+            "parent_id": null,
+            "level": 0,
+            "graph": null,
+            "node_type": "node",
+            "widget_type": "customNode",
+            "expanded": false,
+            "node": {
+                "label": "CalcStatic",
+                "function": "pyiron_nodes.atomistic.engine.lammps.CalcStatic",
+                "inputs": {}
+            }
+        },
+        "Potential_1": {
+            "id": "Potential_1",
+            "import_path": "pyiron_nodes.atomistic.engine.lammps.Potential",
+            "label": "Potential_1",
+            "parent_id": null,
+            "level": 0,
+            "graph": null,
+            "node_type": "node",
+            "widget_type": "customNode",
+            "expanded": false,
+            "node": {
+                "label": "Potential_1",
+                "function": "pyiron_nodes.atomistic.engine.lammps.Potential",
+                "inputs": {}
+            }
+        },
+        "GetAttribute": {
+            "id": "GetAttribute",
+            "import_path": "pyiron_nodes.controls.GetAttribute",
+            "label": "GetAttribute",
+            "parent_id": null,
+            "level": 0,
+            "graph": null,
+            "node_type": "node",
+            "widget_type": "customNode",
+            "expanded": false,
+            "node": {
+                "label": "GetAttribute",
+                "function": "pyiron_nodes.controls.GetAttribute",
+                "inputs": {
+                    "attr": "energies_tot"
+                }
+            }
+        },
+        "GRACE": {
+            "id": "GRACE",
+            "import_path": "pyiron_nodes.atomistic.engine.ase.GRACE",
+            "label": "GRACE",
+            "parent_id": null,
+            "level": 0,
+            "graph": null,
+            "node_type": "node",
+            "widget_type": "customNode",
+            "expanded": false,
+            "node": {
+                "label": "GRACE",
+                "function": "pyiron_nodes.atomistic.engine.ase.GRACE",
+                "inputs": {}
+            }
+        },
+        "Static_1": {
+            "id": "Static_1",
+            "import_path": "pyiron_nodes.atomistic.calculator.ase.Static",
+            "label": "Static_1",
+            "parent_id": null,
+            "level": 0,
+            "graph": null,
+            "node_type": "node",
+            "widget_type": "customNode",
+            "expanded": false,
+            "node": {
+                "label": "Static_1",
+                "function": "pyiron_nodes.atomistic.calculator.ase.Static",
+                "inputs": {}
+            }
+        },
+        "GetAttribute_1": {
+            "id": "GetAttribute_1",
+            "import_path": "pyiron_nodes.controls.GetAttribute",
+            "label": "GetAttribute_1",
+            "parent_id": null,
+            "level": 0,
+            "graph": null,
+            "node_type": "node",
+            "widget_type": "customNode",
+            "expanded": false,
+            "node": {
+                "label": "GetAttribute_1",
+                "function": "pyiron_nodes.controls.GetAttribute",
+                "inputs": {
+                    "attr": "energies_pot"
+                }
+            }
+        },
+        "Add": {
+            "id": "Add",
+            "import_path": "pyiron_nodes.math.Add",
+            "label": "Add",
+            "parent_id": null,
+            "level": 0,
+            "graph": null,
+            "node_type": "node",
+            "widget_type": "customNode",
+            "expanded": false,
+            "node": {
+                "label": "Add",
+                "function": "pyiron_nodes.math.Add",
+                "inputs": {}
+            }
+        },
+        "Plot_2": {
+            "id": "Plot_2",
+            "import_path": "pyiron_nodes.plotting.Plot",
+            "label": "Plot_2",
+            "parent_id": null,
+            "level": 0,
+            "graph": null,
+            "node_type": "node",
+            "widget_type": "customNode",
+            "expanded": false,
+            "node": {
+                "label": "Plot_2",
+                "function": "pyiron_nodes.plotting.Plot",
+                "inputs": {}
+            }
+        },
+        "_obj_type": "pyiron_workflow.api.serial.GraphNode"
+    },
+    "edges": {
+        "values": [
+            {
+                "source": "PhonopyParameters",
+                "target": "phonopy",
+                "sourceHandle": "dataclass",
+                "targetHandle": "phonopy_parameters"
+            },
+            {
+                "source": "Bulk",
+                "target": "Repeat",
+                "sourceHandle": "structure",
+                "targetHandle": "structure"
+            },
+            {
+                "source": "Repeat",
+                "target": "phonopy",
+                "sourceHandle": "structure",
+                "targetHandle": "structure"
+            },
+            {
+                "source": "phonopy",
+                "target": "ThermalProperties",
+                "sourceHandle": "thermal_properties",
+                "targetHandle": "dataclass"
+            },
+            {
+                "source": "ThermalProperties",
+                "target": "Plot",
+                "sourceHandle": "temperatures",
+                "targetHandle": "x"
+            },
+            {
+                "source": "ThermalProperties",
+                "target": "Plot",
+                "sourceHandle": "entropy",
+                "targetHandle": "y"
+            },
+            {
+                "source": "ThermalProperties",
+                "target": "Plot_1",
+                "sourceHandle": "free_energy",
+                "targetHandle": "y"
+            },
+            {
+                "source": "ThermalProperties",
+                "target": "Plot_1",
+                "sourceHandle": "temperatures",
+                "targetHandle": "x"
+            },
+            {
+                "source": "Bulk",
+                "target": "ListPotentials_1",
+                "sourceHandle": "structure",
+                "targetHandle": "structure"
+            },
+            {
+                "source": "CalcStatic",
+                "target": "Lammps",
+                "sourceHandle": "calculator",
+                "targetHandle": "calculator"
+            },
+            {
+                "source": "Repeat",
+                "target": "Potential_1",
+                "sourceHandle": "structure",
+                "targetHandle": "structure"
+            },
+            {
+                "source": "Repeat",
+                "target": "Lammps",
+                "sourceHandle": "structure",
+                "targetHandle": "structure"
+            },
+            {
+                "source": "Potential_1",
+                "target": "Lammps",
+                "sourceHandle": "pot",
+                "targetHandle": "potential"
+            },
+            {
+                "source": "Lammps",
+                "target": "GetAttribute",
+                "sourceHandle": "generic",
+                "targetHandle": "obj"
+            },
+            {
+                "source": "GRACE",
+                "target": "phonopy",
+                "sourceHandle": "out",
+                "targetHandle": "engine"
+            },
+            {
+                "source": "Bulk",
+                "target": "Static_1",
+                "sourceHandle": "structure",
+                "targetHandle": "structure"
+            },
+            {
+                "source": "Static_1",
+                "target": "GetAttribute_1",
+                "sourceHandle": "out",
+                "targetHandle": "obj"
+            },
+            {
+                "source": "GRACE",
+                "target": "Static_1",
+                "sourceHandle": "out",
+                "targetHandle": "engine"
+            },
+            {
+                "source": "ThermalProperties",
+                "target": "Add",
+                "sourceHandle": "free_energy",
+                "targetHandle": "x"
+            },
+            {
+                "source": "GetAttribute_1",
+                "target": "Add",
+                "sourceHandle": "value",
+                "targetHandle": "y"
+            },
+            {
+                "source": "Add",
+                "target": "Plot_2",
+                "sourceHandle": "add",
+                "targetHandle": "y"
+            },
+            {
+                "source": "ThermalProperties",
+                "target": "Plot_2",
+                "sourceHandle": "temperatures",
+                "targetHandle": "x"
+            }
+        ],
+        "obj_type": "pyiron_workflow.api.serial.GraphEdge"
+    }
+}
