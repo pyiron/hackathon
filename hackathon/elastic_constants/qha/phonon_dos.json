@@ -1,0 +1,169 @@
+{
+    "label": "phonon_dos",
+    "nodes": {
+        "PhonopyObject": {
+            "id": "PhonopyObject",
+            "import_path": "pyiron_nodes.atomistic.property.phonons.PhonopyObject",
+            "label": "PhonopyObject",
+            "parent_id": null,
+            "level": 0,
+            "graph": null,
+            "node_type": "node",
+            "widget_type": "customNode",
+            "expanded": false,
+            "node": {
+                "label": "PhonopyObject",
+                "function": "pyiron_nodes.atomistic.property.phonons.PhonopyObject",
+                "inputs": {}
+            }
+        },
+        "GenerateSupercells": {
+            "id": "GenerateSupercells",
+            "import_path": "pyiron_nodes.atomistic.property.phonons.GenerateSupercells",
+            "label": "GenerateSupercells",
+            "parent_id": null,
+            "level": 0,
+            "graph": null,
+            "node_type": "node",
+            "widget_type": "customNode",
+            "expanded": false,
+            "node": {
+                "label": "GenerateSupercells",
+                "function": "pyiron_nodes.atomistic.property.phonons.GenerateSupercells",
+                "inputs": {}
+            }
+        },
+        "PhonopyParameters": {
+            "id": "PhonopyParameters",
+            "import_path": "pyiron_nodes.atomistic.property.phonons.PhonopyParameters",
+            "label": "PhonopyParameters",
+            "parent_id": null,
+            "level": 0,
+            "graph": null,
+            "node_type": "node",
+            "widget_type": "customNode",
+            "expanded": false,
+            "node": {
+                "label": "PhonopyParameters",
+                "function": "pyiron_nodes.atomistic.property.phonons.PhonopyParameters",
+                "inputs": {
+                    "random_seed": ""
+                }
+            }
+        },
+        "CubicBulkCell": {
+            "id": "CubicBulkCell",
+            "import_path": "pyiron_nodes.atomistic.structure.build.CubicBulkCell",
+            "label": "CubicBulkCell",
+            "parent_id": null,
+            "level": 0,
+            "graph": null,
+            "node_type": "graph",
+            "widget_type": null,
+            "expanded": false,
+            "node": {
+                "label": "CubicBulkCell",
+                "function": "pyiron_nodes.atomistic.structure.build.CubicBulkCell",
+                "inputs": {
+                    "element": "Al",
+                    "cell_size": 2,
+                    "vacancy_index": "0"
+                }
+            }
+        },
+        "iterate": {
+            "id": "iterate",
+            "import_path": "pyiron_nodes.controls.iterate",
+            "label": "iterate",
+            "parent_id": null,
+            "level": 0,
+            "graph": null,
+            "node_type": "node",
+            "widget_type": "customNode",
+            "expanded": false,
+            "node": {
+                "label": "iterate",
+                "function": "pyiron_nodes.controls.iterate",
+                "inputs": {
+                    "input_label": "structure"
+                }
+            }
+        },
+        "Static": {
+            "id": "Static",
+            "import_path": "pyiron_nodes.atomistic.calculator.ase.Static",
+            "label": "Static",
+            "parent_id": null,
+            "level": 0,
+            "graph": null,
+            "node_type": "node",
+            "widget_type": "customNode",
+            "expanded": false,
+            "node": {
+                "label": "Static",
+                "function": "pyiron_nodes.atomistic.calculator.ase.Static",
+                "inputs": {
+                    "structure": "NotData"
+                }
+            }
+        },
+        "GRACE": {
+            "id": "GRACE",
+            "import_path": "pyiron_nodes.atomistic.engine.ase.GRACE",
+            "label": "GRACE",
+            "parent_id": null,
+            "level": 0,
+            "graph": null,
+            "node_type": "node",
+            "widget_type": "customNode",
+            "expanded": false,
+            "node": {
+                "label": "GRACE",
+                "function": "pyiron_nodes.atomistic.engine.ase.GRACE",
+                "inputs": {}
+            }
+        },
+        "_obj_type": "pyiron_workflow.api.serial.GraphNode"
+    },
+    "edges": {
+        "values": [
+            {
+                "source": "PhonopyObject",
+                "target": "GenerateSupercells",
+                "sourceHandle": "phonopy",
+                "targetHandle": "phonopy"
+            },
+            {
+                "source": "PhonopyParameters",
+                "target": "GenerateSupercells",
+                "sourceHandle": "dataclass",
+                "targetHandle": "parameters"
+            },
+            {
+                "source": "CubicBulkCell",
+                "target": "PhonopyObject",
+                "sourceHandle": "structure",
+                "targetHandle": "structure"
+            },
+            {
+                "source": "GRACE",
+                "target": "Static",
+                "sourceHandle": "out",
+                "targetHandle": "engine"
+            },
+            {
+                "source": "Static",
+                "target": "iterate",
+                "sourceHandle": "out",
+                "targetHandle": "node"
+            },
+            {
+                "source": "GenerateSupercells",
+                "target": "iterate",
+                "sourceHandle": "supercells",
+                "targetHandle": "values"
+            }
+        ],
+        "obj_type": "pyiron_workflow.api.serial.GraphEdge"
+    }
+}

@@ -1,0 +1,128 @@
+{
+    "label": "get_free_energy",
+    "nodes": {
+        "GetFreeEnergy": {
+            "id": "GetFreeEnergy",
+            "import_path": "pyiron_nodes.atomistic.property.phonons.GetFreeEnergy",
+            "label": "GetFreeEnergy",
+            "parent_id": null,
+            "level": 0,
+            "graph": null,
+            "node_type": "node",
+            "widget_type": "customNode",
+            "expanded": false,
+            "node": {
+                "label": "GetFreeEnergy",
+                "function": "pyiron_nodes.atomistic.property.phonons.GetFreeEnergy",
+                "inputs": {
+                    "temperature": 0
+                }
+            }
+        },
+        "GRACE": {
+            "id": "GRACE",
+            "import_path": "pyiron_nodes.atomistic.engine.ase.GRACE",
+            "label": "GRACE",
+            "parent_id": null,
+            "level": 0,
+            "graph": null,
+            "node_type": "node",
+            "widget_type": "customNode",
+            "expanded": false,
+            "node": {
+                "label": "GRACE",
+                "function": "pyiron_nodes.atomistic.engine.ase.GRACE",
+                "inputs": {}
+            }
+        },
+        "Bulk": {
+            "id": "Bulk",
+            "import_path": "pyiron_nodes.atomistic.structure.build.Bulk",
+            "label": "Bulk",
+            "parent_id": null,
+            "level": 0,
+            "graph": null,
+            "node_type": "node",
+            "widget_type": "customNode",
+            "expanded": false,
+            "node": {
+                "label": "Bulk",
+                "function": "pyiron_nodes.atomistic.structure.build.Bulk",
+                "inputs": {
+                    "name": "Al",
+                    "cubic": true
+                }
+            }
+        },
+        "Repeat": {
+            "id": "Repeat",
+            "import_path": "pyiron_nodes.atomistic.structure.transform.Repeat",
+            "label": "Repeat",
+            "parent_id": null,
+            "level": 0,
+            "graph": null,
+            "node_type": "node",
+            "widget_type": "customNode",
+            "expanded": false,
+            "node": {
+                "label": "Repeat",
+                "function": "pyiron_nodes.atomistic.structure.transform.Repeat",
+                "inputs": {
+                    "repeat_scalar": 3
+                }
+            }
+        },
+        "Static": {
+            "id": "Static",
+            "import_path": "pyiron_nodes.atomistic.calculator.ase.Static",
+            "label": "Static",
+            "parent_id": null,
+            "level": 0,
+            "graph": null,
+            "node_type": "node",
+            "widget_type": "customNode",
+            "expanded": false,
+            "node": {
+                "label": "Static",
+                "function": "pyiron_nodes.atomistic.calculator.ase.Static",
+                "inputs": {}
+            }
+        },
+        "_obj_type": "pyiron_workflow.api.serial.GraphNode"
+    },
+    "edges": {
+        "values": [
+            {
+                "source": "Bulk",
+                "target": "Repeat",
+                "sourceHandle": "structure",
+                "targetHandle": "structure"
+            },
+            {
+                "source": "Repeat",
+                "target": "GetFreeEnergy",
+                "sourceHandle": "structure",
+                "targetHandle": "structure"
+            },
+            {
+                "source": "GRACE",
+                "target": "GetFreeEnergy",
+                "sourceHandle": "out",
+                "targetHandle": "engine"
+            },
+            {
+                "source": "GRACE",
+                "target": "Static",
+                "sourceHandle": "out",
+                "targetHandle": "engine"
+            },
+            {
+                "source": "Repeat",
+                "target": "Static",
+                "sourceHandle": "structure",
+                "targetHandle": "structure"
+            }
+        ],
+        "obj_type": "pyiron_workflow.api.serial.GraphEdge"
+    }
+}

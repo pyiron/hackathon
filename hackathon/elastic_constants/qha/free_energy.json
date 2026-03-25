@@ -1,0 +1,98 @@
+{
+    "label": "free_energy",
+    "nodes": {
+        "GetFreeEnergy": {
+            "id": "GetFreeEnergy",
+            "import_path": "pyiron_nodes.atomistic.property.phonons.GetFreeEnergy",
+            "label": "GetFreeEnergy",
+            "parent_id": null,
+            "level": 0,
+            "graph": null,
+            "node_type": "node",
+            "widget_type": "customNode",
+            "expanded": false,
+            "node": {
+                "label": "GetFreeEnergy",
+                "function": "pyiron_nodes.atomistic.property.phonons.GetFreeEnergy",
+                "inputs": {
+                    "temperature": 600
+                }
+            }
+        },
+        "GRACE": {
+            "id": "GRACE",
+            "import_path": "pyiron_nodes.atomistic.engine.ase.GRACE",
+            "label": "GRACE",
+            "parent_id": null,
+            "level": 0,
+            "graph": null,
+            "node_type": "node",
+            "widget_type": "customNode",
+            "expanded": false,
+            "node": {
+                "label": "GRACE",
+                "function": "pyiron_nodes.atomistic.engine.ase.GRACE",
+                "inputs": {}
+            }
+        },
+        "Bulk": {
+            "id": "Bulk",
+            "import_path": "pyiron_nodes.atomistic.structure.build.Bulk",
+            "label": "Bulk",
+            "parent_id": null,
+            "level": 0,
+            "graph": null,
+            "node_type": "node",
+            "widget_type": "customNode",
+            "expanded": false,
+            "node": {
+                "label": "Bulk",
+                "function": "pyiron_nodes.atomistic.structure.build.Bulk",
+                "inputs": {
+                    "name": "Al",
+                    "cubic": true
+                }
+            }
+        },
+        "PhonopyParameters": {
+            "id": "PhonopyParameters",
+            "import_path": "pyiron_nodes.atomistic.property.phonons.PhonopyParameters",
+            "label": "PhonopyParameters",
+            "parent_id": null,
+            "level": 0,
+            "graph": null,
+            "node_type": "node",
+            "widget_type": "customNode",
+            "expanded": false,
+            "node": {
+                "label": "PhonopyParameters",
+                "function": "pyiron_nodes.atomistic.property.phonons.PhonopyParameters",
+                "inputs": {}
+            }
+        },
+        "_obj_type": "pyiron_workflow.api.serial.GraphNode"
+    },
+    "edges": {
+        "values": [
+            {
+                "source": "Bulk",
+                "target": "GetFreeEnergy",
+                "sourceHandle": "structure",
+                "targetHandle": "structure"
+            },
+            {
+                "source": "PhonopyParameters",
+                "target": "GetFreeEnergy",
+                "sourceHandle": "dataclass",
+                "targetHandle": "parameters"
+            },
+            {
+                "source": "GRACE",
+                "target": "GetFreeEnergy",
+                "sourceHandle": "out",
+                "targetHandle": "engine"
+            }
+        ],
+        "obj_type": "pyiron_workflow.api.serial.GraphEdge"
+    }
+}
